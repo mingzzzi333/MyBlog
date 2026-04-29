@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+function searchAddress() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            document.getElementById('memAddress').value = data.address;
+        }
+    }).open();
+}
+</script>
+<body>
+    <form action="/join" method="post">
+        <div class="join">
+            <h2 style="margin: 0;";>회원가입</h2>
+            ID : <input id="memID" required/> <br/>  
+            비밀번호 : <input type="password" id="memPW" required/> <br/>  
+            이름 : <input id="memName" required/> <br/>  
+            이메일 : <input id="memEmail" placeholder="example@email.com" required/> <br/>  
+            전화번호 : <input id="memPhone" placeholder="010-1234-5678" required/> <br/>  
+            생년월일 : <input type="date" id="memBirth" required/> <br/>  
+            성별 : <input type="radio" id="memSex" name="memSex" value="M"/>남  
+                    <input type="radio" id="memSex" name="memSex" value="F"/>여 <br/>  
+            주소 : <input id="memAddress" readonly required/> 
+            <button type="button" onclick="searchAddress()">주소 검색</button><br/>
+            상세주소 : <input id="memAddressDetail" required/> <br/>
+            프로필사진 : <input type="file" id="memImg" name="memImg" accept="image/*"/> <br/>  
+        </div> 
+        <div style="text-align: center;">
+            <button id="loginBtn" type="submit" style="margin: 0px;">회원가입</button>
+        </div>
+    </form>
+</body>
+</html>
