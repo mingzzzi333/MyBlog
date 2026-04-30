@@ -1,5 +1,10 @@
 package com.example.myblog;
 
+import java.sql.Date;
+
+import lombok.Data;
+
+@Data
 public class MemberDTO {
     private int memNum;
     private String memId;
@@ -7,7 +12,7 @@ public class MemberDTO {
     private String memName;
     private String memEmail;
     private String memPhone;
-    private String memBirth;
+    private Date memBirth;
     private String memSex;
     private String memAddress;
     private String memAddressDetail;

@@ -4,9 +4,12 @@
 
 <mapper namespace="com.example.myblog.MemberDAO">
 
-    <insert id="insertMember" parameterType="MemberDTO">
+    <insert id="insertMember" parameterType="com.example.myblog.MemberDTO">
         INSERT INTO MEMBER (memNum, memId, memPw, memName, memEmail, memPhone, memBirth, memSex, memAddress, memAddressDetail, memImg)
-        VALUES (member_seq.NEXTVAL, #{memId}, #{memPw}, #{memName}, #{memEmail}, #{memPhone}, #{memBirth}, #{memSex}, #{memAddress}, #{memAddressDetail}, #{memImg})
+        VALUES (member_seq.NEXTVAL, #{memId}, #{memPw}, #{memName}, #{memEmail}, 
+            #{memPhone, jdbcType=VARCHAR}, #{memBirth, jdbcType=DATE}, 
+            #{memSex, jdbcType=CHAR}, #{memAddress, jdbcType=VARCHAR}, 
+            #{memAddressDetail, jdbcType=VARCHAR}, #{memImg, jdbcType=VARCHAR})
     </insert>
 
 </mapper>
